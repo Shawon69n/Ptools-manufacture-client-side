@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import BuissnessSummary from '../components/BuissnessSummary';
+import Reviews from '../components/Reviews';
 import ToolCard from '../components/ToolCard';
 
 const Home = () => {
@@ -14,6 +15,8 @@ const Home = () => {
           </div>
           <h1 className='text-3xl text-center mt-32 mb-10 font-bold'>Achivemnets</h1>
          <BuissnessSummary></BuissnessSummary>
+
+         <Reviews></Reviews>
         </div>
     );
 };

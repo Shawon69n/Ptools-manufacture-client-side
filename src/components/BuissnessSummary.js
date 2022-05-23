@@ -8,7 +8,7 @@ const BuissnessSummary = () => {
     return (
         <>
                
-        <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" class=" shadow-2xl mb-10 lg:mr-44 ml-24 w-52 lg:w-auto lg:ml-44 grid lg:grid-cols-4">
+        <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" class=" shadow-2xl mb-10 lg:mr-44 ml-24 w-52 lg:w-auto lg:ml-44 grid lg:grid-cols-4">
                 <div class="stat">
                 <img class="mask mask-decagon w-44" src={exportImg} alt=''/>
                     <div class="stat-title">Deliveried</div>
