@@ -8,6 +8,7 @@ import Navbar from './pages/Navbar';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import Footer from './Shared/Footer';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
   },[])
 
   return (
-    <div>
+    <>
       <Navbar></Navbar>
       <Routes>
           <Route path='/' element={<Home></Home>}></Route>
@@ -26,7 +27,8 @@ function App() {
           <Route path='/blogs' element={<Blogs></Blogs>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
-    </div>
+      <Footer></Footer>
+    </>
   );
 }
 
