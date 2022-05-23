@@ -4,7 +4,7 @@ import CustomLink from '../components/CustomLink';
 const Navbar = () => {
   const menuItmes =
     <>
-     <div className='lg:flex p-10'>
+     <div className='lg:flex mt-5'>
       <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/products'>Products</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
@@ -21,7 +21,7 @@ const Navbar = () => {
       
     </>
   return (
-    <div className="navbar z-50 fixed top-0 lg:justify-center">
+    <div className="navbar z-50 fixed top-0 lg:justify-center bg-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ToolCard = () => {
     return (
-        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" class="card w-60 lg:w-96 bg-base-100 shadow-xl">
+        <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" class="card w-60 lg:w-96 bg-base-100 shadow-xl">
             <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
             <div class="card-body">
                 <h2 class="card-title">
