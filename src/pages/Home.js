@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import BuissnessSummary from '../components/BuissnessSummary';
+import ExtraHomeSectionOne from '../components/ExtraHomeSectionOne';
 import Reviews from '../components/Reviews';
 import ToolCard from '../components/ToolCard';
 
@@ -15,8 +16,9 @@ const Home = () => {
           </div>
           <h1 className='text-3xl text-center mt-32 mb-10 font-bold'>Achivemnets</h1>
          <BuissnessSummary></BuissnessSummary>
-
+         <ExtraHomeSectionOne></ExtraHomeSectionOne>
          <Reviews></Reviews>
+
         </div>
     );
 };

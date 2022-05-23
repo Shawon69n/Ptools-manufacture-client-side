@@ -1,5 +1,4 @@
 import React from 'react';
-import './BuissnessSummary.css'
 import exportImg from '../assets/export.jpg'
 import happyClient from '../assets/Happy user giving positive review of online service.jpg'
 import review from '../assets/review.jpg'

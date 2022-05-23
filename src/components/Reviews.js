@@ -1,28 +1,44 @@
 import React from 'react';
+import ReviewCard from './ReviewCard';
 
 const Reviews = () => {
+    const reviews = [
+        {
+            _id:1,
+            name: 'Austin',
+            review:'',
+            ratings: '5',
+            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-jCtfaiEmORqaGNVoy0GwSHmek67WKPiVFQ&usqp=CAU",
+            loaction: 'Swizerland'
+        },
+        {
+            _id:2,
+            name: 'Martin',
+            review:'',
+            ratings:'5',
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVdAzz79aKA9vuY1fNYRVFf-k8sBZxV9Zlzea3cvpohIx-_CIosKFNIvT5p10r3kpl178&usqp=CAU",
+            loaction: 'UAE'
+        },
+        {
+            _id:3,
+            name: 'Joe',
+            review:'',
+            ratings: '4.5',
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3MuLZ8eygTYV6jUKp6BSwhxstmp1TY0DTMuegkMoYsGSJOr6qmN0MOdkbHFrOU3cvc9Q&usqp=CAU",
+            loaction: 'Japan'
+        },
+    ]
     return (
-        <>
-            <div class="hero min-h-screen">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src="https://us.123rf.com/450wm/artursz/artursz2008/artursz200800349/152975220-conceptual-hand-writing-showing-stay-connected-concept-meaning-to-remain-having-social-professional-.jpg?ver=6" class="max-w-sm rounded-lg shadow-2xl" alt=''/>
-    <div>
-    <div class="mockup-phone">
-  <div class="camera"></div> 
-  <div class="display">
-    <div class="artboard artboard-demo phone-1">
-        <h2 className='text-xl mb-5 font-mono text-center'>Stay connected with us for our latest updates</h2>
-    <input type="text" placeholder="Your Name" class="input input-bordered input-info w-72 max-w-xs" />
-    <input type="text" placeholder="Your email" class="input input-bordered input-info w-72 max-w-xs mt-3" />
-    <button class="btn btn-primary w-72 mt-3">Send</button>
-    
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
-</div>
-        </>
+        <section className='my-28'>
+                <div>
+                    <h2 className='text-3xl text-center'>Checkout some of our customers review</h2>
+                </div>
+
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-16'>
+            {reviews.map(review => <ReviewCard review={review} key={review._id}></ReviewCard>)}
+            </div>
+        </section>
     );
 };
 
