@@ -7,7 +7,7 @@ const Navbar = () => {
      <div className='lg:flex mt-5'>
       <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
-      <p className='mx-2 font-semibold'><CustomLink to='/dashboard'>Dashboard</CustomLink></p>
+      <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/login'>Login</CustomLink></p>
   
 
