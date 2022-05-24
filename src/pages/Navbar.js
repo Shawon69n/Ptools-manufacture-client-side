@@ -11,28 +11,28 @@ const Navbar = () => {
     signOut(auth);
   }
 
-  const menuItmes =
+  const navLink =
     <>
      <div className='lg:flex mt-5'>
-      <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
+      <p className='mx-2 mb-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>
-      {user ? <p className='mx-2 font-semibold text-orange-600'><CustomLink to='' onClick={logout}>Sign out</CustomLink></p> : <p className='mx-2 font-semibold'> <CustomLink to='/login' >Login</CustomLink></p>}
-
-      {/* <p className='mx-2 font-semibold'>{user? <CustomLink to='' onClick={logout} ><span>Sign Out</span></CustomLink> :<CustomLink to='/login'>Login</CustomLink>}</p> */}
   
-
-      {user && <div class="avatar mx-2">
+      {user && <div class="avatar mb-2 mx-2">
         <div class="w-10 rounded-full">
           <img src={user?.photoURL} alt='' />
         </div>
       </div>}
+
+      {user && <p className='mx-2 font-serif font-semibold '>{user?.displayName}</p>}
+
+      {user ? <p className='mx-2 font-semibold text-orange-600 lg:ml-10'><CustomLink to='' onClick={logout}>Sign out</CustomLink></p> : <p className='mx-2 font-semibold'> <CustomLink to='/login' >Login</CustomLink></p>}
      </div>
 
       
     </>
   return (
-    <div className="navbar z-50 fixed top-0 lg:justify-center bg-white">
+    <div className="navbar z-50 fixed top-0 lg:justify-center  bg-slate-50 shadow-sm ">
       <div className="navbar-start">
 
       <label for="my-drawer-2" tabindex="0" class="btn btn-ghost lg:hidden btn-circle">
@@ -45,13 +45,13 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex="0" className="menu menu-compact dropdown-content mt-5 p-2 shadow bg-base-100 rounded-box w-52">
-            {menuItmes}
+            {navLink}
           </ul>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0 gap-x-2 ">
-          {menuItmes}
+          {navLink}
         </ul>
       </div>
     </div>

@@ -32,7 +32,7 @@ function App() {
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/home' element={<Home></Home>}></Route>
           {/* <Route path='/products' element={<Home></Home>}></Route> */}
-          <Route path='/blogs' element={<RequiredAuth><Blogs></Blogs></RequiredAuth>}></Route>
+          <Route path='/blogs' element={<Blogs></Blogs>}></Route>
 
           <Route path='/dashboard' element={<RequiredAuth><Dashboard></Dashboard></RequiredAuth>}>
 

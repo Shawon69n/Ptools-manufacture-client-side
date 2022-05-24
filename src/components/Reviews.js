@@ -31,7 +31,7 @@ const Reviews = () => {
     return (
         <section className='my-28'>
                 <div>
-                    <h2 className='text-3xl text-center'>Checkout some of our customers review</h2>
+                    <h2 className='text-3xl text-center font-serif'>Checkout some of our customers review</h2>
                 </div>
 
 

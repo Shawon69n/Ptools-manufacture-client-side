@@ -15,7 +15,7 @@ const Home = () => {
            <ToolCard></ToolCard>
            <ToolCard></ToolCard>
           </div>
-          <h1 className='text-3xl text-center mt-32 mb-10 font-bold'>Achivemnets</h1>
+          <h1 className='text-3xl text-center mt-32 mb-10 font-bold font-serif'>Achivemnets</h1>
          <BuissnessSummary></BuissnessSummary>
          <ExtraHomeSectionOne></ExtraHomeSectionOne>
          <Reviews></Reviews>
