@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../components/Banner';
 import BuissnessSummary from '../components/BuissnessSummary';
 import ExtraHomeSectionOne from '../components/ExtraHomeSectionOne';
+import ExtraSectionSecond from '../components/ExtraSectionSecond';
 import Reviews from '../components/Reviews';
 import ToolCard from '../components/ToolCard';
 
@@ -18,6 +19,7 @@ const Home = () => {
          <BuissnessSummary></BuissnessSummary>
          <ExtraHomeSectionOne></ExtraHomeSectionOne>
          <Reviews></Reviews>
+         <ExtraSectionSecond></ExtraSectionSecond>
 
         </div>
     );

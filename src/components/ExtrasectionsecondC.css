@@ -1,0 +1,21 @@
+.swiper {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+  .bg-banner{
+      background-image: url('https://www.tennantco.com/content/dam/tennant/tennantco/page-top-images/supplier-banner-image.jpg');
+      background-repeat: no-repeat;
+  }

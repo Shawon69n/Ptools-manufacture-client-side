@@ -9,6 +9,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Footer from './Shared/Footer';
+import "swiper/css/bundle";
+import "./components/ExtrasectionsecondC.css";
 
 function App() {
 
