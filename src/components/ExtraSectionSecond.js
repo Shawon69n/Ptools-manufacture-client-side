@@ -32,16 +32,16 @@ const ExtraSectionSecond = () => {
                         className="mySwiper"
                     >
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt='' />
+                            <img src="https://transportgeography.org/wp-content/uploads/2017/10/core_components_transportation.png" alt='' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt='' />
+                            <img src="https://content3.jdmagicbox.com/comp/def_content/stationery_shops/default-stationery-shops-7.jpg?clr=443322" alt='' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt='' />
+                            <img src="https://media.istockphoto.com/photos/smart-retail-concept-autonomous-robot-service-use-for-move-box-in-picture-id1197931279?k=20&m=1197931279&s=612x612&w=0&h=954kqa5Eq1d9Pl7vDYq5blxlVXHK-gcu4YqydyQUULA=" alt='' />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt='' />
+                            <img src="https://media.istockphoto.com/photos/paint-roller-with-blue-paint-on-a-wooden-surface-picture-id1320162763?k=20&m=1320162763&s=612x612&w=0&h=XvxnBcIP8WkHCljr4kcGQWsoZjgLVCHZ6htV1Yp3f1k=" alt='' />
                         </SwiperSlide>
                     </Swiper>
                     <div className='flex flex-col lg:ml-52'>
@@ -58,32 +58,3 @@ const ExtraSectionSecond = () => {
 };
 
 export default ExtraSectionSecond;
-
-
-
-{/* <Swiper
-effect={"cube"}
-grabCursor={true}
-cubeEffect={{
-    shadow: true,
-    slideShadows: true,
-    shadowOffset: 20,
-    shadowScale: 0.94,
-}}
-pagination={true}
-modules={[EffectCube, Pagination]}
-className="mySwiper"
->
-<SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt='' />
-</SwiperSlide>
-<SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt='' />
-</SwiperSlide>
-<SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt='' />
-</SwiperSlide>
-<SwiperSlide>
-    <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt='' />
-</SwiperSlide>
-</Swiper> */}
