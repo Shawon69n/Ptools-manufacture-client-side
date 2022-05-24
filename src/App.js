@@ -17,6 +17,7 @@ import MyOrders from './pages/Dashboard/MyOrders';
 import AddReview from './pages/Dashboard/AddReview';
 import MyProfile from './pages/Dashboard/MyProfile';
 import SignUp from './Authentication/SignUp';
+import NotFound from './Shared/NotFound';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
 
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
+          <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </>
