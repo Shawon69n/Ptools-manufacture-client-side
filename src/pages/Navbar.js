@@ -1,19 +1,30 @@
 import React from 'react';
 import CustomLink from '../components/CustomLink';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init'
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const logout = () =>{
+    signOut(auth);
+  }
+
   const menuItmes =
     <>
      <div className='lg:flex mt-5'>
       <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>
-      <p className='mx-2 font-semibold'><CustomLink to='/login'>Login</CustomLink></p>
+      {user ? <p className='mx-2 font-semibold text-orange-600'><CustomLink to='' onClick={logout}>Sign out</CustomLink></p> : <p className='mx-2 font-semibold'> <CustomLink to='/login' >Login</CustomLink></p>}
+
+      {/* <p className='mx-2 font-semibold'>{user? <CustomLink to='' onClick={logout} ><span>Sign Out</span></CustomLink> :<CustomLink to='/login'>Login</CustomLink>}</p> */}
   
 
       <div class="avatar mx-2">
         <div class="w-10 rounded-full">
-          <img src={`https://stickerly.pstatic.net/sticker_pack/y79pP0GdjdaDlvYIEobhoA/V9JV8S/35/0513d979-3b61-4818-878c-97f6d94f6d06.png`} alt='' />
+          <img src={user?.photoURL} alt='' />
         </div>
       </div>
      </div>
@@ -29,7 +40,7 @@ const Navbar = () => {
       </label>
         <p className="normal-case text-3xl font-extrabold">PTools hub</p>
         
-        <div className="dropdown ml-56">
+        <div className="dropdown ml-40">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>

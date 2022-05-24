@@ -1,77 +1,97 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init'
 import Loading from '../Shared/Loading';
 
 
-const Login = () => {
-
-  let signInError;
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  if(gUser){
-      console.log(gUser);
-  }
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
-  
-  
-  const { register, formState: { errors }, handleSubmit } = useForm();
-  
-  const [
-      signInWithEmailAndPassword,
-      user,
-      loading,
-      error,
-    ] = useSignInWithEmailAndPassword(auth);
-
-
-    // const [token] = useToken(user || gUser);
-
-    // useEffect(()=>{
-    //   if(token){
-    //       navigate(from , {replace: true});
-    //   }
-    // },[token,from,navigate])
+const SignUp = () => {
+    let signInError;
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
     
+    
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+    //   const [token] = useToken(user || gUser);
+
+      if(loading || gLoading){
+          return <Loading></Loading>
+      }
+
+     
+     
+      if(error || gError || updateError){
+        signInError= <p  className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
+    }
 
 
     if(loading || gLoading){
         return <Loading></Loading>
     }
-   
-    if(error || gError){
-      signInError= <p  className='text-red-500'><small>{error?.message || gError?.message }</small></p>
-  }
-  const onSubmit = data => {
-      signInWithEmailAndPassword(data.email,data.password)
-  };
 
-  if(user || gUser){
-    navigate(from , {replace: true});
-}
+//     if(token){ 
+//         navigate('/appointment')
+//  }
+ 
+    const onSubmit = async data => {
+       await createUserWithEmailAndPassword(data?.email,data?.password);
+       await updateProfile({ displayName : data?.name});
+       console.log('user profile updated')
+     
 
+    };
 
-  return (
-    <div class="hero min-h-screen bg-base-200 flex justify-center items-center">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" class="text-center lg:text-left">
-          <img className='mt-20 lg:w-4/6 lg:ml-36' src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000" alt="" />
-        </div>
-        
-
+    if(user || gUser){
+        navigate(from , {replace: true});
+    }
+    
+    return (
         <div  className='flex justify-center items-center h-screen'>
             <div  className="card w-96 bg-base-100 shadow-xl">
                      <div  className="card-body">
-                    <h2  className="card-title text-3xl font-bold">Login</h2>
+                    <h2  className="card-title text-3xl font-bold">Sign up</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
+                <div  className="form-control w-full max-w-xs">
+                    <label  className="label">
+                        <span  className="label-text">Name</span>
+                    </label>
+
+                    <input
+                                type="text"
+                                placeholder="Your name"
+                                 className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}
+                            />
+
+                    <label  className="label">
+            {errors.name?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.name.message}</span>}
+                    </label>
+                </div>
+
+
                 <div  className="form-control w-full max-w-xs">
                     <label  className="label">
                         <span  className="label-text">Email</span>
@@ -129,51 +149,15 @@ const Login = () => {
                     </label>
                 </div>
                       {signInError}          
-                    <input  className='btn w-full max-w-xs' type="submit" value='Login' />
+                    <input  className='btn w-full max-w-xs' type="submit" value='Sign up' />
                     </form>
-                    <p  className='text-sm'>New to Ptools? <Link to='/signup'><span  className='text-sm our-service-txt'>Sign up now</span></Link></p>
+                    <p  className='text-sm'>Already have an account? <Link to='/login'><span  className='text-sm our-service-txt'>Login now</span></Link></p>
                     <div  className="divider">OR</div>
                     <button onClick={() => signInWithGoogle()}  className="btn btn-outline">Continue with google</button>
                      </div>
             </div>
         </div>
-
-
-
-
-      </div>
-    </div>
-  );
+    );
 };
 
-export default Login;
-
-
-
-  // <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-16">
-  //         <div class="card-body">
-  //           <h1 className='text-xl text-center font-serif font-bold'>Login</h1>
-  //           <div class="form-control">
-  //             <label class="label">
-  //               <span class="label-text">Email</span>
-  //             </label>
-  //             <input type="text" placeholder="email" class="input input-bordered" />
-  //           </div>
-  //           <div class="form-control">
-  //             <label class="label">
-  //               <span class="label-text">Password</span>
-  //             </label>
-  //             <input type="text" placeholder="password" class="input input-bordered" />
-  //             <label class="label">
-  //               <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-  //             </label>
-  //           </div>
-  //           <div class="form-control mt-6">
-  //             <button class="btn btn-primary">Login</button>
-  //           </div>
-  //           <div class="divider">OR</div>
-
-  //           <button class="btn btn-outline btn-primary hover:btn-primary ">Continue with Google</button>
-
-  //         </div>
-  //       </div>
+export default SignUp;
