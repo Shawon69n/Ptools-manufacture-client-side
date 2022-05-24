@@ -12,6 +12,7 @@ import Footer from './Shared/Footer';
 import "swiper/css/bundle";
 import "./components/ExtrasectionsecondC.css";
 import RequiredAuth from './Authentication/RequiredAuth';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
 
@@ -28,6 +29,9 @@ function App() {
           <Route path='/home' element={<Home></Home>}></Route>
           {/* <Route path='/products' element={<Home></Home>}></Route> */}
           <Route path='/blogs' element={<RequiredAuth><Blogs></Blogs></RequiredAuth>}></Route>
+
+          <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+
           <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
       <Footer></Footer>

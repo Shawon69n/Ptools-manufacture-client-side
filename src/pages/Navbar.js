@@ -6,10 +6,10 @@ const Navbar = () => {
     <>
      <div className='lg:flex mt-5'>
       <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
-      <p className='mx-2 font-semibold'><CustomLink to='/products'>Products</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/dashboard'>Dashboard</CustomLink></p>
       <p className='mx-2 font-semibold'><CustomLink to='/login'>Login</CustomLink></p>
+  
 
       <div class="avatar mx-2">
         <div class="w-10 rounded-full">
@@ -23,7 +23,13 @@ const Navbar = () => {
   return (
     <div className="navbar z-50 fixed top-0 lg:justify-center bg-white">
       <div className="navbar-start">
-        <div className="dropdown">
+
+      <label for="my-drawer-2" tabindex="0" class="btn btn-ghost lg:hidden btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+        <p className="normal-case text-3xl font-extrabold">PTools hub</p>
+        
+        <div className="dropdown ml-56">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
@@ -31,7 +37,6 @@ const Navbar = () => {
             {menuItmes}
           </ul>
         </div>
-        <p className="normal-case text-3xl font-extrabold">PTools hub</p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0 gap-x-2 ">
