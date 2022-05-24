@@ -22,11 +22,11 @@ const Navbar = () => {
       {/* <p className='mx-2 font-semibold'>{user? <CustomLink to='' onClick={logout} ><span>Sign Out</span></CustomLink> :<CustomLink to='/login'>Login</CustomLink>}</p> */}
   
 
-      <div class="avatar mx-2">
+      {user && <div class="avatar mx-2">
         <div class="w-10 rounded-full">
           <img src={user?.photoURL} alt='' />
         </div>
-      </div>
+      </div>}
      </div>
 
       

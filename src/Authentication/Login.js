@@ -66,10 +66,10 @@ const Login = () => {
         </div>
         
 
-        <div  className='flex justify-center items-center h-screen'>
+        <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" className='flex justify-center items-center h-screen'>
             <div  className="card w-96 bg-base-100 shadow-xl">
                      <div  className="card-body">
-                    <h2  className="card-title text-3xl font-bold">Login</h2>
+                    <h2  className="text-xl text-center font-serif font-bold">Login</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                 <div  className="form-control w-full max-w-xs">
@@ -129,11 +129,11 @@ const Login = () => {
                     </label>
                 </div>
                       {signInError}          
-                    <input  className='btn w-full max-w-xs' type="submit" value='Login' />
+                    <input  className='w-full max-w-xs btn btn-primary' type="submit" value='Login' />
                     </form>
-                    <p  className='text-sm'>New to Ptools? <Link to='/signup'><span  className='text-sm our-service-txt'>Sign up now</span></Link></p>
+                    <p  className='text-sm'>New to Ptools? <Link to='/signup'><span  className='text-sm text-orange-500'>Sign up now</span></Link></p>
                     <div  className="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()}  className="btn btn-outline">Continue with google</button>
+                    <button onClick={() => signInWithGoogle()}  className="btn btn-outline btn-primary hover:btn-primary">Continue with google</button>
                      </div>
             </div>
         </div>
