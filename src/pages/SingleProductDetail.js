@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 
 const SingleProductDetail = () => {
     const [quantityError, setQuantityError] = useState('')
-    const [inputValue, setInputValue] = useState(0);
+    const [inputValue, setInputValue] = useState();
     const { id } = useParams();
     const { data: product, isLoading } = useQuery('products', () => fetch(`http://localhost:5000/product/${id}`)
         .then(res => res.json()))
@@ -19,29 +19,28 @@ const SingleProductDetail = () => {
 
     const handleChange = (e) => {
         setInputValue(e.target.value);
+        
     };
 
     const handleSubmit = event => {
         event.preventDefault();
+        setInputValue(minimumQuantity)
         const orderedQuantity = event.target.orderedQuantity.value;
-
-        // {orderedQuantity > minimumQuantity ? console.log('error') : console.log('success')}
-        if (orderedQuantity < minimumQuantity) {
-            setQuantityError(`You have to order atleast ${minimumQuantity}`)
+        if(inputValue > availableQuantity){
+            setQuantityError(`You can't order over than ${availableQuantity}`)
         }
-        else {
-            console.log('sucess');
+        else{
+            setQuantityError('')
         }
-
     };
 
     return (
-        <div class="hero min-h-screen ">
-            <div class="hero-content flex-col lg:flex-row">
-                <img src={image} class="max-w-sm rounded-lg shadow-2xl" alt='' />
+        <div className="hero min-h-screen ">
+            <div className="hero-content flex-col lg:flex-row">
+                <img src={image} className="max-w-sm rounded-lg shadow-2xl" alt='' />
                 <div className='lg:ml-28'>
-                    <h1 class="text-5xl font-bold">{name}</h1>
-                    <p class="py-6 border-b-2 mb-5">{details}</p>
+                    <h1 className="text-5xl font-bold">{name}</h1>
+                    <p className="py-6 border-b-2 mb-5">{details}</p>
 
                     <div className='flex '>
                         <h2 className='text-lg mb-4'>Per piece price : <span className='font-bold'>${price}</span></h2>
@@ -50,15 +49,15 @@ const SingleProductDetail = () => {
                     </div>
 
                     <form onSubmit={handleSubmit}>
-                        <label class="label">
-                            <span class="label-text">Your order quantity</span>
+                        <label className="label">
+                            <span className="label-text">Your order quantity</span>
                         </label>
-                        <input name='orderedQuantity' value={inputValue} onChange={handleChange} class="input input-bordered input-sm w-44 input-info max-w-xs" type='number' required />
+                        <input name='orderedQuantity' value={inputValue} onChange={handleChange} className="input input-bordered input-sm w-44 input-info max-w-xs" type='number' required />
 
-                        {inputValue < minimumQuantity ? <input disabled className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' /> : <input className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' />}
+                        {inputValue < minimumQuantity || inputValue === 0 ? <input disabled className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' /> : <input className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' />}
 
                     </form>
-                    {quantityError && <p>{quantityError}</p>}
+                    {quantityError ? <p className='text-sm text-red-600'>{quantityError}</p> : ''}
 
 
                 </div>
