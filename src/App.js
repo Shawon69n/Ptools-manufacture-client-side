@@ -21,6 +21,7 @@ import NotFound from './Shared/NotFound';
 import Users from './pages/Dashboard/Users';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SingleProductDetail from './pages/SingleProductDetail';
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
           <Route path='/home' element={<Home></Home>}></Route>
           {/* <Route path='/products' element={<Home></Home>}></Route> */}
           <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-
+          <Route path='/product/:id' element={<RequiredAuth><SingleProductDetail></SingleProductDetail></RequiredAuth>}></Route>
           <Route path='/dashboard' element={<RequiredAuth><Dashboard></Dashboard></RequiredAuth>}>
 
                         <Route index element={<MyOrders></MyOrders>}></Route>

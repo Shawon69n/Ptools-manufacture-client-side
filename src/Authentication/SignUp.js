@@ -54,7 +54,7 @@ const SignUp = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
-    //   const [token] = useToken(user || gUser);
+
 
     if (loading || gLoading) {
         return <Loading></Loading>
@@ -71,9 +71,7 @@ const SignUp = () => {
         return <Loading></Loading>
     }
 
-    //     if(token){ 
-    //         navigate('/appointment')
-    //  }
+
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data?.email, data?.password);
