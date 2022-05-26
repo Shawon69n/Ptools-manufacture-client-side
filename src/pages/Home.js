@@ -9,7 +9,7 @@ import Loading from '../Shared/Loading';
 
 const Home = () => {
 
-    const {data: products ,  isLoading} = useQuery('products' , () => fetch('http://localhost:5000/products')
+    const {data: products ,  isLoading} = useQuery('/products' , () => fetch('http://localhost:5000/products')
             .then(res => res.json()))
 
             if(isLoading){
