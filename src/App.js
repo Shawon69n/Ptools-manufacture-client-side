@@ -18,6 +18,7 @@ import AddReview from './pages/Dashboard/AddReview';
 import MyProfile from './pages/Dashboard/MyProfile';
 import SignUp from './Authentication/SignUp';
 import NotFound from './Shared/NotFound';
+import Users from './pages/Dashboard/Users';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
                         <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
                         <Route path='addreview' element={<AddReview></AddReview>}></Route>
                         <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+                        <Route path='users' element={<Users></Users>}></Route>
 
 
 

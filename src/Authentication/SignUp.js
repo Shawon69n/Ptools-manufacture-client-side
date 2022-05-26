@@ -53,8 +53,22 @@ const SignUp = () => {
     const onSubmit = async data => {
        await createUserWithEmailAndPassword(data?.email,data?.password);
        await updateProfile({ displayName : data?.name});
-       console.log('user profile updated')
+       const email = data?.email;
+       const name = data?.name;
+       const user = {email,name}
      
+       fetch('http://localhost:5000/users',{
+           method:'POST',
+           headers: {
+               'content-type' : 'application/json'
+           },
+           body: JSON.stringify(user)
+
+       })
+       .then(res => res.json())
+       .then(data => {
+           console.log("user creation succesfull");
+       })
 
     };
 
