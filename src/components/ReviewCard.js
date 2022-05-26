@@ -17,8 +17,8 @@ const ReviewCard = ({r}) => {
 
                         <div className='flex mt-3'>
                             <h5>Ratings : {r?.rating}</h5>
-                            <div class="rating rating-sm mt-1">
-                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                            <div className="rating rating-sm mt-1">
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
                             </div>
                         </div>
                     </div>

@@ -10,8 +10,8 @@ const Users = () => {
     }
     return (
         <div>
-            <div class="overflow-x-auto w-full">
-  <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+  <table className="table w-full">
     {/* <!-- head --> */}
     <thead>
       <tr>
@@ -30,18 +30,18 @@ const Users = () => {
         <th>
         </th>
         <td>
-          <div class="flex items-center space-x-3">
+          <div className="flex items-center space-x-3">
             <div>
-              <div class="font-bold">{user?.name}</div>
+              <div className="font-bold">{user?.name}</div>
             </div>
           </div>
         </td>
         <td>
-        <div class="font-bold text-center">{user?.email}</div>
+        <div className="font-bold text-center">{user?.email}</div>
         </td>
         <td><button className='btn-accent btn text-white btn-xs'>make admin</button></td>
         <th>
-          <button class="btn btn-error hover:bg-red-600 btn-xs">Remove</button>
+          <button className="btn btn-error hover:bg-red-600 btn-xs">Remove</button>
         </th>
       </tr>
       </>)}

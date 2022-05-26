@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import avatar from '../assets/avatar.png'
 const Navbar = () => {
   const [user] = useAuthState(auth);
-
   const logout = () => {
     signOut(auth);
   }
@@ -18,8 +17,8 @@ const Navbar = () => {
         <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
         <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
         <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>
-       {user && <div class="avatar online ml-10">
-          <div class="w-10 rounded-full">
+       {user && <div className="avatar online ml-10">
+          <div className="w-10 rounded-full">
             <img src={user.photoURL ? user.photoURL : avatar} alt='' />
           </div>
         </div>}
@@ -35,8 +34,8 @@ const Navbar = () => {
     <div className="navbar z-50 fixed top-0 lg:justify-center  bg-slate-50 shadow-sm ">
       <div className="navbar-start">
 
-        <label for="my-drawer-2" tabindex="0" class="btn btn-ghost lg:hidden btn-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+        <label for="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
         </label>
 
         <div className="normal-case text-3xl font-extrabold font-serif text-slate-900 space-x-1">

@@ -16,8 +16,8 @@ import { EffectCube, Pagination } from "swiper";
 const ExtraSectionSecond = () => {
     return (
         <>
-            <div class="hero min-h-screen bg-slate-300 ">
-                <div class="hero-content flex-col lg:flex-row">
+            <div className="hero min-h-screen bg-slate-300 ">
+                <div className="hero-content flex-col lg:flex-row">
                     <Swiper
                         effect={"cube"}
                         grabCursor={true}
@@ -46,10 +46,10 @@ const ExtraSectionSecond = () => {
                     </Swiper>
                     <div className='flex flex-col lg:ml-52'>
                         <h2 className='text-xl mb-5 font-mono text-center'>Become our supllier</h2>
-                        <input type="text" placeholder="Your Name" class="input input-bordered input-info w-72 max-w-xs" />
-                        <input type="text" placeholder="Your email" class="input input-bordered input-info w-72 max-w-xs mt-3" />
-                        <textarea  placeholder="Write about what you want to supply..." class="textarea textarea-info w-72 max-w-xs mt-3" />
-                        <button class="btn btn-primary w-72 mt-3">Send</button>
+                        <input type="text" placeholder="Your Name" className="input input-bordered input-info w-72 max-w-xs" />
+                        <input type="text" placeholder="Your email" className="input input-bordered input-info w-72 max-w-xs mt-3" />
+                        <textarea  placeholder="Write about what you want to supply..." className="textarea textarea-info w-72 max-w-xs mt-3" />
+                        <button className="btn btn-primary w-72 mt-3">Send</button>
                     </div>
                 </div>
             </div>

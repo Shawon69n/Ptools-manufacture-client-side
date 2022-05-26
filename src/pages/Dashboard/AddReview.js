@@ -51,16 +51,16 @@ const AddReview = () => {
         <div>
             <div>
                 <h1 className='text-center mb-10 font-mono font-extrabold lg:text-2xl'>Give your precious review to us</h1>
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <img src={reviewImg} class="max-w-sm rounded-lg  shadow-2xl" alt='' />
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <img src={reviewImg} className="max-w-sm rounded-lg  shadow-2xl" alt='' />
                     <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
 
-                        <input value={user?.displayName} class="w-96 input input-bordered shadow-2xl" {...register("name")} />
-                        <input type="text" placeholder='Your location' class="w-96 input input-bordered shadow-2xl mt-2" {...register("address", { required: true })} required />
+                        <input value={user?.displayName} className="w-96 input input-bordered shadow-2xl" {...register("name")} />
+                        <input type="text" placeholder='Your location' className="w-96 input input-bordered shadow-2xl mt-2" {...register("address", { required: true })} required />
                         <textarea placeholder='Write your review' className='textarea input-bordered shadow-2xl mt-2' {...register("review", { required: true })} />
 
-                        <input type="file" class="w-96 input input-bordered shadow-2xl mt-2 p-2" {...register("img")} required />
-                        <select class="select select-bordered select-sm mt-2" {...register("rating")} required >
+                        <input type="file" className="w-96 input input-bordered shadow-2xl mt-2 p-2" {...register("img")} required />
+                        <select className="select select-bordered select-sm mt-2" {...register("rating")} required >
                             <option disabled selected>Pick your rating</option>
                             <option>1</option>
                             <option>2</option>
