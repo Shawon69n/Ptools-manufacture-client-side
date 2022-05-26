@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
 
 const SingleProductDetail = () => {
+    const [user] = useAuthState(auth);
     const [quantityError, setQuantityError] = useState('')
     const [inputValue, setInputValue] = useState();
     const { id } = useParams();
@@ -24,14 +26,39 @@ const SingleProductDetail = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        setInputValue(minimumQuantity)
         const orderedQuantity = event.target.orderedQuantity.value;
         if(inputValue > availableQuantity){
             setQuantityError(`You can't order over than ${availableQuantity}`)
+            return
         }
         else{
             setQuantityError('')
         }
+
+        const totalPrice = price * orderedQuantity;
+        const email = user.email;
+        const order = {
+            productName : name,
+            totalPrice,
+            image,
+            orderedQuantity,
+            email
+        }
+
+        // sending to database 
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(added => {
+                toast.success("Your product is ordered !");
+            })
+
+
     };
 
     return (
