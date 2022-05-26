@@ -19,6 +19,8 @@ import MyProfile from './pages/Dashboard/MyProfile';
 import SignUp from './Authentication/SignUp';
 import NotFound from './Shared/NotFound';
 import Users from './pages/Dashboard/Users';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -52,7 +54,9 @@ function App() {
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
           <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
       <Footer></Footer>
+
     </>
   );
 }
