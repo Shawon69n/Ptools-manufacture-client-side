@@ -17,13 +17,13 @@ const Navbar = () => {
       <div className='lg:flex justify-center items-center'>
         <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
         <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
-        <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>
+        {user && <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>}
        {user && <div className="avatar online ml-3 lg:ml-10">
           <div className="w-10 rounded-full">
             <img src={user.photoURL ? user.photoURL : avatar} alt='' />
           </div>
         </div>}
-        {user && <p className='mx-2 font-serif font-semibold '>{user?.displayName}</p>}
+        {user && <p className='mx-2 badge badge-outline  font-semibold '>{user?.displayName}</p>}
 
         {user ? <p className='mx-2 font-semibold text-orange-400 lg:ml-10'><Link to='' onClick={logout}><span className='lg:badge lg:p-5 badge-lg'>Log out</span></Link></p> : <p className='mx-2 font-semibold'> <Link to='/login' ><span className='badge lg:ml-5 lg:p-5 badge-lg'>Login</span></Link></p>}
       </div>

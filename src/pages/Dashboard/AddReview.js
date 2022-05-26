@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import reviewImg from '../../assets/review.jpg'
+import { toast } from 'react-toastify';
 const AddReview = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit, } = useForm();
@@ -40,7 +41,7 @@ const AddReview = () => {
                     })
                         .then(res => res.json())
                         .then(added => {
-                            console.log('yohhoo');
+                            toast.success("Your review is published !");
                         })
 
                 }
@@ -50,7 +51,7 @@ const AddReview = () => {
     return (
         <div>
             <div>
-                <h1 className='text-center mb-10 font-mono font-extrabold lg:text-2xl'>Give your precious review to us</h1>
+                <h1 className='text-center mb-10 font-mono font-extrabold lg:text-2xl mt-10'>Give your precious review to us</h1>
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={reviewImg} className="max-w-sm rounded-lg  shadow-2xl" alt='' />
                     <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
