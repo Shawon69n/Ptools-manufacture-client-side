@@ -23,6 +23,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SingleProductDetail from './pages/SingleProductDetail';
 import WelcomeToDashboard from './components/WelcomeToDashboard';
+import Payment from './pages/Payment/Payment';
 function App() {
 
   useEffect(() =>{
@@ -44,6 +45,7 @@ function App() {
                         
                         <Route index element={<WelcomeToDashboard></WelcomeToDashboard>}></Route>
                         <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
+                        <Route path='payment/:id' element={<Payment></Payment>}></Route>
                         <Route path='addreview' element={<AddReview></AddReview>}></Route>
                         <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
                         <Route path='users' element={<Users></Users>}></Route>

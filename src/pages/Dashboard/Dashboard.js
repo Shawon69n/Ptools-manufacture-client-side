@@ -25,7 +25,7 @@ const Dashboard = () => {
           
           {admin === false && <li><NavLink to='/dashboard/myorders'>My orders</NavLink></li>}
           {admin === false &&<li><NavLink to='/dashboard/addreview'>Add a review</NavLink></li>}
-          {admin === false &&<li><NavLink to='/dashboard/myprofile'>My profile</NavLink></li>}
+          <li><NavLink to='/dashboard/myprofile'>My profile</NavLink></li>
 
           {admin === true && <li><NavLink to='/dashboard/users'>Users</NavLink></li>}
         </ul>
