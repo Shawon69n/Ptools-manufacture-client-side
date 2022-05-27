@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 const AdminProductsRow = ({product}) => {
 
     return (
