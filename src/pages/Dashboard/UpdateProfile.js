@@ -28,7 +28,7 @@ const UpdateProfile = () => {
         .then(res => res.json())
         .then(data => {
             toast.success('user updated')
-            navigate('/myprofile')
+            navigate('/dashboard/myprofile')
         })
     }
 

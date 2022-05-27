@@ -28,16 +28,16 @@ const MyProfile = () => {
             <figure class="px-10 pt-10">
                 <div class="avatar">
                     <div class="w-24 rounded-full">
-                        <img src={profile.img} alt='' />
+                        <img src={profile?.img} alt='' />
                     </div>
                 </div>
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">{profile.name}</h2>
-                <p className='mb-5'>Email : {user?.email}</p>
-                <p className='mb-2'>Address : {profile?.address}</p>
-                <p className='mb-2'>Education : {profile.education}</p>
-                <p className='mb-10'>LinkedIn Id :  <a className='border-b-2 border-black' href={profile.linkedid}>Profile link</a></p>
+                {profile?  <h2 class="card-title">{profile?.name}</h2> : <h2 class="card-title">{user?.displayName}</h2>}
+                {profile ? <p className='mb-5'>Email : {user?.email}</p> : <p className='mb-5'>Email : {user?.email}</p>}
+                {profile ? <p className='mb-2'>Address : {profile?.address}</p> : <p className='mb-2'>Address : </p>}
+                {profile ? <p className='mb-2'>Education : {profile?.education} </p> : <p className='mb-2'>Education : {profile?.education}</p>}
+                {profile ? <p className='mb-10'>LinkedIn Id :  <a className='border-b-2 border-black' href={profile?.linkedid}>Profile link</a></p> : <p className='mb-10'>LinkedIn Id :  <a className='border-b-2 border-black' href={profile?.linkedid}>Profile link</a></p>}
                 <div class="card-actions flex">
                     <button onClick={logout} class="btn btn-sm btn-primary btn-outline">Log out</button>
                     <p>Edit profile :</p>

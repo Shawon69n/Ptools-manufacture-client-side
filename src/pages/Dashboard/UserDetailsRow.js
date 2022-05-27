@@ -2,31 +2,30 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import useAdmin from '../../Hooks/useAdmin';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
-const UserDetailsRow = ({user,refetch}) => {
+const UserDetailsRow = ({user,setUsers}) => {
     const {email , name , _id} = user;
     const [admin] = useAdmin(user);
 
     const makeAdmin = () =>{
-        fetch(`http://localhost:5000/users/admin/${email}`,{
-            method: 'PUT',
-            
-        })
-        .then(res => {
-           return res.json()
-            
-        })
-        .then(data => {
-            if(data.modifiedCount === 1){
-                toast.success('Successfully made an admin')
-                refetch();
-            
-            }
-            else{
-                toast.error('Failed to make an admin')
-            }
-            
-           
-        })
+      fetch(`http://localhost:5000/users/admin/${email}`,{
+        method: 'PUT',
+        
+    })
+    .then(res => {
+       return res.json()
+        
+    })
+    .then(data => {
+        if(data.modifiedCount === 1){
+            toast.success('Successfully made an admin')
+        
+        }
+        else{
+            toast.error('Failed to make an admin')
+        }
+        
+       
+    })
     }
 
     
