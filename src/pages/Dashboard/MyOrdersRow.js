@@ -1,5 +1,4 @@
 import React from 'react';
-import { toast } from 'react-toastify';
 
 const MyOrdersRow = ({order,refetch}) => {
     const {productName,orderedQuantity,totalPrice,_id} = order;
@@ -14,12 +13,12 @@ const MyOrdersRow = ({order,refetch}) => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, Cancel it!'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
+            'Cancelled!',
+            'Your order is cancelled.',
             'success'
           )
           fetch(`http://localhost:5000/orders/${_id}`,{
