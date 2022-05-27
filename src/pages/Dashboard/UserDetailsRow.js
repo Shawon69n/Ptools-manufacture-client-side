@@ -47,9 +47,6 @@ const UserDetailsRow = ({user,refetch}) => {
         <div className="font-bold text-center">{email}</div>
         </td>
         <td>{admin ? <p className='text-2xl ml-8'><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></p> : <button onClick={makeAdmin} className='btn-accent btn text-white btn-xs'>make admin</button>}</td>
-        <th>
-          <button  className="btn btn-error hover:bg-red-600 btn-xs">Remove</button>
-        </th>
       </tr>
       </>
     );

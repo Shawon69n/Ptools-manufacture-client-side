@@ -18,14 +18,7 @@ const MyProfile = () => {
   if (isLoading) {
     return <Loading></Loading>
   }
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/myprofile')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         setProfile(data)
-           
-    //     })
-    // },[])
+   
     
     
 
@@ -40,13 +33,15 @@ const MyProfile = () => {
                 </div>
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">{profile.name}<Link to='/dashboard/updateprofile'><span className='text-sm'><FaEdit></FaEdit></span></Link></h2>
+                <h2 class="card-title">{profile.name}</h2>
                 <p className='mb-5'>Email : {user?.email}</p>
                 <p className='mb-2'>Address : {profile?.address}</p>
                 <p className='mb-2'>Education : {profile.education}</p>
                 <p className='mb-10'>LinkedIn Id :  <a className='border-b-2 border-black' href={profile.linkedid}>Profile link</a></p>
-                <div class="card-actions">
+                <div class="card-actions flex">
                     <button onClick={logout} class="btn btn-sm btn-primary btn-outline">Log out</button>
+                    <p>Edit profile :</p>
+                    <p className='mt-1'><Link to='/dashboard/updateprofile'><span className='text-base'><FaEdit></FaEdit></span></Link></p>
                 </div>
             </div>
         </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const UpdateProfile = () => {
 
     const [user] = useAuthState(auth);
-
+    const navigate = useNavigate();
     const handleOnSubmit = e =>{
         e.preventDefault();
         const name = e.target.name.value;
@@ -26,7 +27,8 @@ const UpdateProfile = () => {
         })
         .then(res => res.json())
         .then(data => {
-            toast('user updated')
+            toast.success('user updated')
+            navigate('/myprofile')
         })
     }
 
