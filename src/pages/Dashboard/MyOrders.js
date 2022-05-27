@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
@@ -7,12 +7,24 @@ import MyOrdersRow from './MyOrdersRow';
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
-  const {data: orders ,  isLoading} = useQuery('orders' , () => fetch(`http://localhost:5000/orders`)
-    .then(res => res.json()))
+  const email = user?.email;
+  const [orders,setOrders] = useState([]);
+  // const {data: orders ,  isLoading} = useQuery('orders' , () => fetch(`http://localhost:5000/orders/${user?.email}`)
+  //   .then(res => res.json()))
 
-    if(isLoading){
-        return <Loading></Loading>
-    }
+  //   if(isLoading){
+  //       return <Loading></Loading>
+  //   }
+    useEffect(() =>{
+        fetch(`http://localhost:5000/orders?email=${email}`,{
+          method: 'GET',
+          headers: {
+            'content-type' : 'application/json'
+          }
+        })
+        .then(res => res.json())
+        .then(data => setOrders(data))
+    },[])
   
   return (
     <div>
