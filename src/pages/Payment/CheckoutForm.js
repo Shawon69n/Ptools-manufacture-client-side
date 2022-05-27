@@ -3,6 +3,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 
 const CheckoutForm = ({data}) => {
+    const Swal = require('sweetalert2')
     const stripe = useStripe();
     const elements = useElements();
     const [cardError,setCardError] = useState('');
@@ -11,9 +12,25 @@ const CheckoutForm = ({data}) => {
     // const [transactionId,settransactionId] = useState('');
     const [processing, setProcessing] = useState(false);
 
-    const {price,patient,email,_id} = data;
+    const {totalPrice,productName,email,_id} = data;
 
 
+    useEffect(() =>{
+        fetch('http://localhost:5000/create-payment-intent',{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({totalPrice})
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result?.clientSecret){
+                setClientSecret(result.clientSecret)
+                
+            }
+        })
+    },[totalPrice])
 
 
 
@@ -39,8 +56,38 @@ const CheckoutForm = ({data}) => {
         setSuccess('');
         // setProcessing(true);
 
-       
+         // confirn card payment 
+         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: data?.productName,
+                        email: data?.email
+                    },
+                },
+            },
+        );
+
+        if(intentError){
+            setCardError(intentError?.message)
+            
+        }
+        else{
+            setCardError('')
+            Swal.fire({
+                title: 'Success',
+                text: 'Your Payment is complete.',
+                imageUrl: 'https://c.tenor.com/8SgfKqD7twkAAAAC/vnu-yoohoo.gif',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+              })
+        }
+      
     }
+
     return (
         <>
         <form onSubmit={handleSubmit}>
@@ -61,7 +108,7 @@ const CheckoutForm = ({data}) => {
                 }}
             />
             <button className='btn btn-success btn-sm mt-4'
-            // disabled={!stripe || !clientSecret}
+            disabled={!stripe || !clientSecret}
             type="submit">
                 Pay
             </button>
