@@ -27,6 +27,7 @@ import Payment from './pages/Payment/Payment';
 import ManageOrders from './pages/Dashboard/Admin/ManageOrders';
 import AddProduct from './pages/Dashboard/Admin/AddProduct';
 import ManageProducts from './pages/Dashboard/Admin/ManageProducts';
+import MyPortFolio from './pages/MyPortFolio';
 function App() {
 
   useEffect(() =>{
@@ -42,6 +43,7 @@ function App() {
           <Route path='/home' element={<Home></Home>}></Route>
 
           <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+          <Route path='/portfolio' element={<MyPortFolio></MyPortFolio>}></Route>
           <Route path='/product/:id' element={<RequiredAuth><SingleProductDetail></SingleProductDetail></RequiredAuth>}></Route>
 
           <Route path='/dashboard' element={<RequiredAuth><Dashboard></Dashboard></RequiredAuth>}>
