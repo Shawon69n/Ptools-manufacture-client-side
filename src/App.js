@@ -25,6 +25,7 @@ import SingleProductDetail from './pages/SingleProductDetail';
 import WelcomeToDashboard from './components/WelcomeToDashboard';
 import Payment from './pages/Payment/Payment';
 import ManageOrders from './pages/Dashboard/Admin/ManageOrders';
+import AddProduct from './pages/Dashboard/Admin/AddProduct';
 function App() {
 
   useEffect(() =>{
@@ -51,6 +52,7 @@ function App() {
                         <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
                         <Route path='users' element={<Users></Users>}></Route>
                         <Route path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
+                        <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
           </Route>
 
           <Route path='/login' element={<Login></Login>}></Route>
