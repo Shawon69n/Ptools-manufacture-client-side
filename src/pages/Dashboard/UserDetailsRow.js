@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import useAdmin from '../../Hooks/useAdmin';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 const UserDetailsRow = ({user,refetch}) => {
-    const {email , name} = user;
+    const {email , name , _id} = user;
     const [admin] = useAdmin(user);
 
     const makeAdmin = () =>{
@@ -29,9 +29,7 @@ const UserDetailsRow = ({user,refetch}) => {
         })
     }
 
-    const handleRemoveUser = () =>{
-     console.log(admin);
-    }
+    
 
     return (
         <>
@@ -50,7 +48,7 @@ const UserDetailsRow = ({user,refetch}) => {
         </td>
         <td>{admin ? <p className='text-2xl ml-8'><MdOutlineAdminPanelSettings></MdOutlineAdminPanelSettings></p> : <button onClick={makeAdmin} className='btn-accent btn text-white btn-xs'>make admin</button>}</td>
         <th>
-          <button onClick={handleRemoveUser} className="btn btn-error hover:bg-red-600 btn-xs">Remove</button>
+          <button  className="btn btn-error hover:bg-red-600 btn-xs">Remove</button>
         </th>
       </tr>
       </>

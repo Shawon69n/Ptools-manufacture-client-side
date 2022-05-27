@@ -8,23 +8,30 @@ import MyOrdersRow from './MyOrdersRow';
 const MyOrders = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
-  const [orders,setOrders] = useState([]);
-  // const {data: orders ,  isLoading} = useQuery('orders' , () => fetch(`http://localhost:5000/orders/${user?.email}`)
-  //   .then(res => res.json()))
+  // const [orders,setOrders] = useState([]);
 
-  //   if(isLoading){
-  //       return <Loading></Loading>
-  //   }
-    useEffect(() =>{
-        fetch(`http://localhost:5000/orders?email=${email}`,{
+  const {data: orders ,  isLoading , refetch} = useQuery('orders' , () => fetch(`http://localhost:5000/orders?email=${email}`,{
           method: 'GET',
           headers: {
             'content-type' : 'application/json'
           }
         })
-        .then(res => res.json())
-        .then(data => setOrders(data))
-    },[])
+    .then(res => res.json()))
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
+
+    // useEffect(() =>{
+    //     fetch(`http://localhost:5000/orders?email=${email}`,{
+    //       method: 'GET',
+    //       headers: {
+    //         'content-type' : 'application/json'
+    //       }
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => setOrders(data))
+    // },[])
   
   return (
     <div>
@@ -43,7 +50,7 @@ const MyOrders = () => {
           </thead>
           <tbody className='text-center'>
             
-            {orders.map(order => <MyOrdersRow key={order._id} order={order}></MyOrdersRow>)}
+            {orders.map(order => <MyOrdersRow key={order._id} order={order} refetch={refetch}></MyOrdersRow>)}
 
           </tbody>
         </table>

@@ -3,11 +3,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import reviewImg from '../../assets/review.jpg'
-import { toast } from 'react-toastify';
 const AddReview = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit, } = useForm();
-
+    const Swal = require('sweetalert2')
     const imgStorageKey = "147d9a20e88f00ffb378d09769220704";
 
     const onSubmit = async data => {
@@ -41,7 +40,10 @@ const AddReview = () => {
                     })
                         .then(res => res.json())
                         .then(added => {
-                            toast.success("Your review is published !");
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'Your review is published',
+                              })
                         })
 
                 }

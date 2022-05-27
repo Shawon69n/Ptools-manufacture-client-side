@@ -23,7 +23,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SingleProductDetail from './pages/SingleProductDetail';
 import WelcomeToDashboard from './components/WelcomeToDashboard';
-
 function App() {
 
   useEffect(() =>{
