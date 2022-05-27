@@ -79,12 +79,24 @@ const CheckoutForm = ({data}) => {
             settransactionId(paymentIntent.id);
             Swal.fire({
                 title: 'Success',
-                text: `Your Payment is complete. 
-                Your Transaction ID : ${transactionId} `,
+                text: 'Your Payment is complete.',
                 imageUrl: 'https://c.tenor.com/8SgfKqD7twkAAAAC/vnu-yoohoo.gif',
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
+              })
+
+            //   sending to batabase 
+            const payment = {
+                transactionId : paymentIntent.id,
+                productId : _id
+            }
+              fetch(`http://localhost:5000/orders/${_id}`,{
+                  method: 'PATCH',
+                  headers:{
+                      'content-type' : 'application/json',
+                  },
+                  body: JSON.stringify(payment)
               })
         }
       
@@ -97,7 +109,7 @@ const CheckoutForm = ({data}) => {
                 options={{
                     style: {
                         base: {
-                            fontSize: '20px',
+                            fontSize: '16px',
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -117,7 +129,7 @@ const CheckoutForm = ({data}) => {
         </form>
         {cardError && <p className='text-red-600'>{cardError}</p>}
         {success && <p className='text-green-600'>{success}</p>}
-        {/* {transactionId && <p className='text-orange-700'>Your Transaction id : {transactionId}</p>} */}
+        {transactionId && <p className='text-orange-400'>Your Transaction ID : ${transactionId}</p>}
        </>
     );
 };

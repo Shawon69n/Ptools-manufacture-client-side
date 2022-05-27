@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyOrdersRow = ({ order, refetch }) => {
-  const { productName, orderedQuantity, totalPrice, _id } = order;
+  const { productName, orderedQuantity, totalPrice, _id ,transactionId } = order;
 
   const HandleRemoveUser = () => {
     const Swal = require('sweetalert2')
@@ -45,10 +45,11 @@ const MyOrdersRow = ({ order, refetch }) => {
       <th>{productName}</th>
       <td>{orderedQuantity}</td>
       <td>{totalPrice}</td>
+      <td>{transactionId}</td>
 
       <td>
         {!order?.paid && <Link to={`/dashboard/payment/${_id}`}><button className='btn-accent btn text-white btn-xs'>Pay</button></Link>}
-        {order?.paid && <button className='btn-accent btn text-white btn-xs'>Paid</button>}
+        {order?.paid && <button disabled className='btn-accent btn text-white font-semibold btn-xs'>Paid</button>}
       </td>
 
       <td> <button onClick={HandleRemoveUser} className="btn btn-error hover:bg-red-600 btn-xs">Cancel</button></td>
