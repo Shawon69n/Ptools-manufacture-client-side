@@ -52,7 +52,7 @@ const MyOrdersRow = ({ order, refetch }) => {
         {order?.paid && <button disabled className='btn-accent btn text-white font-semibold btn-xs'>Paid</button>}
       </td>
 
-      <td> <button onClick={HandleRemoveUser} className="btn btn-error hover:bg-red-600 btn-xs">Cancel</button></td>
+      <td> { order?.paid ? '':<button onClick={HandleRemoveUser} className="btn btn-error hover:bg-red-600 btn-xs">Cancel</button>}</td>
     </tr>
   );
 };

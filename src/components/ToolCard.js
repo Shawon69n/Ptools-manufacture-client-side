@@ -9,7 +9,7 @@ const ToolCard = ({product}) => {
     }
     return (
         <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" className="card w-60 lg:w-96 bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
+            <figure><img src={image} alt="" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {name}

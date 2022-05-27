@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import Loading from '../../Shared/Loading';
 
 
 const CheckoutForm = ({data}) => {
@@ -14,6 +15,7 @@ const CheckoutForm = ({data}) => {
 
     const {totalPrice,productName,email,_id} = data;
 
+  
 
     useEffect(() =>{
         fetch('http://localhost:5000/create-payment-intent',{
@@ -77,6 +79,7 @@ const CheckoutForm = ({data}) => {
         else{
             setCardError('')
             settransactionId(paymentIntent.id);
+
             Swal.fire({
                 title: 'Success',
                 text: 'Your Payment is complete.',
@@ -85,6 +88,8 @@ const CheckoutForm = ({data}) => {
                 imageHeight: 200,
                 imageAlt: 'Custom image',
               })
+              
+             
 
             //   sending to batabase 
             const payment = {

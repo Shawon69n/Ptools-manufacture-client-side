@@ -26,6 +26,7 @@ const ManageOrders = () => {
                             <th>Product name</th>
                             <th>Ordered Quantity</th>
                             <th>Total price</th>
+                            <th>Email</th>
                             <th>TransactionId</th>
                             <th>Payment</th>
                             <th>Status</th>
@@ -38,6 +39,7 @@ const ManageOrders = () => {
                                 <th>{order.productName}</th>
                                 <td>{order.orderedQuantity}</td>
                                 <td>{order.totalPrice}</td>
+                                <td>{order.email}</td>
                                 <td>{order.transactionId}</td>
 
                                 <td>

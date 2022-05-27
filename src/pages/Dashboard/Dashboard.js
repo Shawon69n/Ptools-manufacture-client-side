@@ -30,6 +30,7 @@ const Dashboard = () => {
           {admin === true && <li><NavLink to='/dashboard/users'>Users</NavLink></li>}
           {admin === true && <li><NavLink to='/dashboard/manageorders'>Manage Orders</NavLink></li>}
           {admin === true && <li><NavLink to='/dashboard/addproduct'>Add Product</NavLink></li>}
+          {admin === true && <li><NavLink to='/dashboard/manageproducts'>Manage products</NavLink></li>}
         </ul>
 
       </div>

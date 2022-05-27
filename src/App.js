@@ -26,6 +26,7 @@ import WelcomeToDashboard from './components/WelcomeToDashboard';
 import Payment from './pages/Payment/Payment';
 import ManageOrders from './pages/Dashboard/Admin/ManageOrders';
 import AddProduct from './pages/Dashboard/Admin/AddProduct';
+import ManageProducts from './pages/Dashboard/Admin/ManageProducts';
 function App() {
 
   useEffect(() =>{
@@ -53,6 +54,7 @@ function App() {
                         <Route path='users' element={<Users></Users>}></Route>
                         <Route path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
                         <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+                        <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
           </Route>
 
           <Route path='/login' element={<Login></Login>}></Route>
