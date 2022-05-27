@@ -9,7 +9,7 @@ const CheckoutForm = ({data}) => {
     const [cardError,setCardError] = useState('');
     const [clientSecret,setClientSecret] = useState('');
     const [success,setSuccess] = useState('');
-    // const [transactionId,settransactionId] = useState('');
+    const [transactionId,settransactionId] = useState('');
     const [processing, setProcessing] = useState(false);
 
     const {totalPrice,productName,email,_id} = data;
@@ -54,7 +54,7 @@ const CheckoutForm = ({data}) => {
 
         setCardError(error?.message || '' )
         setSuccess('');
-        // setProcessing(true);
+        setProcessing(true);
 
          // confirn card payment 
          const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
@@ -76,9 +76,11 @@ const CheckoutForm = ({data}) => {
         }
         else{
             setCardError('')
+            settransactionId(paymentIntent.id);
             Swal.fire({
                 title: 'Success',
-                text: 'Your Payment is complete.',
+                text: `Your Payment is complete. 
+                Your Transaction ID : ${transactionId} `,
                 imageUrl: 'https://c.tenor.com/8SgfKqD7twkAAAAC/vnu-yoohoo.gif',
                 imageWidth: 400,
                 imageHeight: 200,
@@ -90,12 +92,12 @@ const CheckoutForm = ({data}) => {
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
-            <CardElement
+        <form className='mt-10' onSubmit={handleSubmit}>
+            <CardElement className='input input-bordered border-zinc-900'
                 options={{
                     style: {
                         base: {
-                            fontSize: '16px',
+                            fontSize: '20px',
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -107,7 +109,7 @@ const CheckoutForm = ({data}) => {
                     },
                 }}
             />
-            <button className='btn btn-success btn-sm mt-4'
+            <button className='btn  btn-primary hover:btn-info btn-wide ml-6 mt-10'
             disabled={!stripe || !clientSecret}
             type="submit">
                 Pay
