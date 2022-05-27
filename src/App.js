@@ -22,6 +22,7 @@ import Users from './pages/Dashboard/Users';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SingleProductDetail from './pages/SingleProductDetail';
+import WelcomeToDashboard from './components/WelcomeToDashboard';
 
 function App() {
 
@@ -39,16 +40,14 @@ function App() {
 
           <Route path='/blogs' element={<Blogs></Blogs>}></Route>
           <Route path='/product/:id' element={<RequiredAuth><SingleProductDetail></SingleProductDetail></RequiredAuth>}></Route>
-          <Route path='/dashboard' element={<RequiredAuth><Dashboard></Dashboard></RequiredAuth>}>
 
-                      
+          <Route path='/dashboard' element={<RequiredAuth><Dashboard></Dashboard></RequiredAuth>}>
+                        
+                        <Route index element={<WelcomeToDashboard></WelcomeToDashboard>}></Route>
                         <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
                         <Route path='addreview' element={<AddReview></AddReview>}></Route>
                         <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
                         <Route path='users' element={<Users></Users>}></Route>
-
-
-
           </Route>
 
           <Route path='/login' element={<Login></Login>}></Route>

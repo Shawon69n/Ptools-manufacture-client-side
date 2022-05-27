@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className='lg:flex justify-center items-center'>
         <p className='mx-2 font-semibold'><CustomLink to='/home'>Home</CustomLink></p>
         <p className='mx-2 font-semibold'><CustomLink to='/blogs'>Blogs</CustomLink></p>
-        {user && <p className='mx-2 font-semibold'><CustomLink to='/dashboard/myorders'>Dashboard</CustomLink></p>}
+        {user && <p className='mx-2 font-semibold'><CustomLink to='/dashboard'>Dashboard</CustomLink></p>}
        {user && <div className="avatar online ml-3 lg:ml-10">
           <div className="w-10 rounded-full">
             <img src={user.photoURL ? user.photoURL : avatar} alt='' />
