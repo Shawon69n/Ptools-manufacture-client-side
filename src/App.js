@@ -28,6 +28,7 @@ import ManageOrders from './pages/Dashboard/Admin/ManageOrders';
 import AddProduct from './pages/Dashboard/Admin/AddProduct';
 import ManageProducts from './pages/Dashboard/Admin/ManageProducts';
 import MyPortFolio from './pages/MyPortFolio';
+import UpdateProfile from './pages/Dashboard/UpdateProfile';
 function App() {
 
   useEffect(() =>{
@@ -53,6 +54,7 @@ function App() {
                         <Route path='payment/:id' element={<Payment></Payment>}></Route>
                         <Route path='addreview' element={<AddReview></AddReview>}></Route>
                         <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+                        <Route path='/dashboard/updateprofile' element={<UpdateProfile></UpdateProfile>}></Route>
                         <Route path='users' element={<Users></Users>}></Route>
                         <Route path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
                         <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
