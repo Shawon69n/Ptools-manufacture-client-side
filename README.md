@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Project name : PTools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live website Link :https://last-assignmnet.web.app/home
+
+### About my project : 
+* This is a manufacturer website .
+* I have used react js to create this website.
+* I have used react router for routing.
+* For authentication system I've used Firebase and react fire base hooks.
+* For styling my website I've used tailwind and daisyui.
+
+
 
 ## Available Scripts
 
