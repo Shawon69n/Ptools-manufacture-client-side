@@ -28,8 +28,8 @@ const MyPortFolio = () => {
             </div>
 
             <h1 className='text-2xl text-center font-bold mb-10'>Some of my projects</h1>
-            <div className='lg:grid lg:grid-cols-3 mt-10 lg:ml-28 mb-28'>
-                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000" class="card card-compact shadow-2xl w-96 bg-base-100 ">
+            <div className='lg:grid lg:grid-cols-3 mt-10 ml-20 lg:ml-28 mb-28'>
+                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000" class="card card-compact mb-5 shadow-2xl w-64 lg:w-96 bg-base-100 ">
                     <figure><img src={project1} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Musica</h2>
@@ -38,7 +38,7 @@ const MyPortFolio = () => {
                         </div>
                     </div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000"  class="card card-compact w-96 bg-base-100 shadow-2xl">
+                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000"  class="card card-compact mb-5 w-64 lg:w-96  bg-base-100 shadow-2xl">
                     <figure><img src={project2} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Moment captcha</h2>
@@ -48,7 +48,7 @@ const MyPortFolio = () => {
                         </div>
                     </div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000"  class="card card-compact w-96 bg-base-100 shadow-2xl">
+                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000"  class="card mb-5 card-compact w-64 lg:w-96  bg-base-100 shadow-2xl">
                     <figure><img src={project3} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Siu convention center</h2>

@@ -46,7 +46,7 @@ const AddProduct = () => {
             });
     }
     return (
-        <div className='w-96 ml-80'>
+        <div className='w-96 ml-3 lg:ml-80'>
             <h1 className='text-2xl text-center text-slate-800 font-serif font-bold mt-10'>Add new product</h1>
             <form onSubmit={handleAddProduct} className='mt-10 ' action="">
                 <div className='flex flex-col'>

@@ -4,7 +4,7 @@ const WelcomeToDashboard = () => {
     return (
         <div>
             <h2 className='text-4xl text-center mt-10'>Welcome to dashboard</h2>
-            <img className='ml-56' src={dasImg} alt="" />
+            <img className='lg:ml-56' src={dasImg} alt="" />
         </div>
     );
 };
