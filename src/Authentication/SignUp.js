@@ -11,31 +11,6 @@ const SignUp = () => {
     let signInError;
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-    // const handleGoogleSignIn = async () => {
-    //     await signInWithGoogle()
-
-    //    const name = gUser.displayName;
-    //    const email = gUser.email;
-
-    //     const user = {name,email}
-
-    //         fetch('http://localhost:5000/users', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify(user)
-
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 console.log("user creation succesfull");
-    //             })
-
-
-    // }
-
-
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -57,6 +32,65 @@ const SignUp = () => {
 
 
 
+  
+
+
+
+
+    const onSubmit = async data => {
+            await createUserWithEmailAndPassword(data?.email, data?.password);
+            await updateProfile({ displayName: data?.name });
+           
+            if(error){
+               return;
+            }
+            else{
+                const email = data?.email;
+                const name = data?.name;
+                const user = { email, name }
+        
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+        
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("user creation succesfull");
+                    })
+            }
+    
+      
+
+    };
+
+    if (user || gUser) {
+        navigate(from, { replace: true });
+    }
+    
+
+    if(gUser){
+        const email = gUser?.user?.email;
+        const name = gUser?.user?.displayName;
+        const userData = {email,name}
+
+        fetch(`http://localhost:5000/users/${email}`, {
+          method: 'PUT',
+          headers: {
+              'content-type' : 'application/json'
+          },
+          body: JSON.stringify(userData)
+          
+      })
+          .then(res => res.json())
+          .then(data => {
+             console.log(data);
+          })
+      }
+
     if (loading || gLoading) {
         return <Loading></Loading>
     }
@@ -67,57 +101,6 @@ const SignUp = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-
-
-
-
-    const onSubmit = async data => {
-        await createUserWithEmailAndPassword(data?.email, data?.password);
-        await updateProfile({ displayName: data?.name });
-        const email = data?.email;
-        const name = data?.name;
-        const user = { email, name }
-
-        fetch('http://localhost:5000/users', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log("user creation succesfull");
-            })
-
-    };
-
-    if (user || gUser) {
-        navigate(from, { replace: true });
-    }
-    
-    if(gUser){
-        const name = gUser?.user?.displayName;
-        const email = gUser?.user?.email;
- 
-         const user = {name,email}
-        console.log(user);
-             fetch('http://localhost:5000/users', {
-                 method: 'POST',
-                 headers: {
-                     'content-type': 'application/json'
-                 },
-                 body: JSON.stringify(user)
- 
-             })
-                 .then(res => res.json())
-                 .then(data => {
-                    if(data.acknowledged){
-                        toast('User creation succesfull')
-                    }
-                 })
-    }
 
     return (
         <div data-aos="fade-in" data-aos-delay="50" data-aos-duration="1000" className='flex justify-center items-center h-screen'>

@@ -28,14 +28,6 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
 
-    // const [token] = useToken(user || gUser);
-
-    // useEffect(()=>{
-    //   if(token){
-    //       navigate(from , {replace: true});
-    //   }
-    // },[token,from,navigate])
-
     
 
 
@@ -50,6 +42,25 @@ const Login = () => {
   const onSubmit = data => {
       signInWithEmailAndPassword(data.email,data.password)
   };
+
+  if(gUser){
+    const email = gUser?.user?.email;
+    const name = gUser?.user?.displayName;
+    const userData = {email,name}
+
+    fetch(`http://localhost:5000/users/${email}`, {
+      method: 'PUT',
+      headers: {
+          'content-type' : 'application/json'
+      },
+      body: JSON.stringify(userData)
+      
+  })
+      .then(res => res.json())
+      .then(data => {
+         console.log(data);
+      })
+  }
 
   if(user || gUser){
     navigate(from , {replace: true});
