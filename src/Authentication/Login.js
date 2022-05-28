@@ -8,12 +8,10 @@ import Loading from '../Shared/Loading';
 
 
 const Login = () => {
-
+  
   let signInError;
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  if(gUser){
-      console.log(gUser);
-  }
+  
 
   const navigate = useNavigate();
   const location = useLocation();

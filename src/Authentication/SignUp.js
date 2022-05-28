@@ -2,6 +2,7 @@ import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../firebase.init'
 import Loading from '../Shared/Loading';
 
@@ -12,12 +13,12 @@ const SignUp = () => {
 
     // const handleGoogleSignIn = async () => {
     //     await signInWithGoogle()
-        
+
     //    const name = gUser.displayName;
     //    const email = gUser.email;
 
     //     const user = {name,email}
-        
+
     //         fetch('http://localhost:5000/users', {
     //             method: 'POST',
     //             headers: {
@@ -30,7 +31,7 @@ const SignUp = () => {
     //             .then(data => {
     //                 console.log("user creation succesfull");
     //             })
-        
+
 
     // }
 
@@ -51,7 +52,7 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    const [updateProfile,  updateError] = useUpdateProfile(auth);
+    const [updateProfile, updateError] = useUpdateProfile(auth);
 
 
 
@@ -94,6 +95,28 @@ const SignUp = () => {
 
     if (user || gUser) {
         navigate(from, { replace: true });
+    }
+    
+    if(gUser){
+        const name = gUser?.user?.displayName;
+        const email = gUser?.user?.email;
+ 
+         const user = {name,email}
+        console.log(user);
+             fetch('http://localhost:5000/users', {
+                 method: 'POST',
+                 headers: {
+                     'content-type': 'application/json'
+                 },
+                 body: JSON.stringify(user)
+ 
+             })
+                 .then(res => res.json())
+                 .then(data => {
+                    if(data.acknowledged){
+                        toast('User creation succesfull')
+                    }
+                 })
     }
 
     return (
