@@ -3,7 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div className='lg:grid grid-cols-3 gap-5 mb-20 mt-40 lg:ml-20'>
-            <div class="card w-96 mb-5 bg-base-100 shadow-2xl">
+            <div data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" class="card w-96 mb-5 bg-base-100 shadow-2xl">
                 <div class="card-body">
                     <h1 className="text-base font-serif font-semibold"> 1.How will you improve the performance of a React Application?</h1>
                     <p className='flex flex-col'>
@@ -15,7 +15,7 @@ const Blogs = () => {
                     </p>
                 </div>
             </div>
-            <div class="card w-96 mb-5 bg-base-100 shadow-2xl">
+            <div data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000" class="card w-96 mb-5 bg-base-100 shadow-2xl">
                 <div class="card-body">
                     <h1 className="text-base font-serif font-semibold"> 2.What are the different ways to manage a state in a React application?</h1>
                     <p className='flex flex-col'>
@@ -25,7 +25,7 @@ const Blogs = () => {
                         <span>iv.ছবি সমূহের সাইজ ঠিক করা ।</span> </p>
                 </div>
             </div>
-            <div class="card w-96 mb-5 bg-base-100 shadow-2xl">
+            <div data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" class="card w-96 mb-5 bg-base-100 shadow-2xl">
                 <div class="card-body">
                     <h1 className="text-base font-serif font-semibold"> 3. How does prototypical inheritance work?</h1>
                     <p>প্রোটোটাইপিকাল উত্তরাধিকার অন্য বস্তু থেকে বস্তুর বৈশিষ্ট্য অ্যাক্সেস করার ক্ষমতা বোঝায়।
@@ -33,7 +33,7 @@ const Blogs = () => {
                         প্রোটোটাইপিকাল ইনহেরিটেন্স আমাদেরকে একটি রেফারেন্স পয়েন্টার ফাংশনের মাধ্যমে একটি জাভাস্ক্রিপ্ট অবজেক্ট থেকে অন্যটিতে বৈশিষ্ট্য বা পদ্ধতিগুলি পুনরায় ব্যবহার করতে দেয়।</p>
                 </div>
             </div>
-            <div class="card w-96 mb-5 bg-base-100 shadow-2xl">
+            <div data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" class="card w-96 mb-5 bg-base-100 shadow-2xl">
                 <div class="card-body">
                     <h1 className="text-base font-serif font-semibold"> 4.  You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h1>
                     <p>
@@ -41,7 +41,7 @@ const Blogs = () => {
                         একটা ইনপুট ফিল্ড বানিয়ে সেখানে একটি অনচেঞ্জ হ্যন্ডেলার দিতে হবে । তারপর অই হ্যান্ডেলার ফাংশনের ভিতরে ইপুটফিল্ড এর টেক্সট নিতে হবে এবং আবার ফেচ করতে হবে সেই নাম দিয়ে তারপর ইউ আই তে দেখাতে হবে । </p>
                 </div>
             </div>
-            <div class="card w-96 mb-5 bg-base-100 shadow-2xl">
+            <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" class="card w-96 mb-5 bg-base-100 shadow-2xl">
                 <div class="card-body">
                     <h1 className="text-base font-serif font-semibold">5. What is a unit test? Why should write unit tests?</h1>
                     <p>

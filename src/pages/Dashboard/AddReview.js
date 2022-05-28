@@ -56,8 +56,8 @@ const AddReview = () => {
             <div>
                 <h1 className='text-center mb-10 font-mono font-extrabold lg:text-2xl mt-10'>Give your precious review to us</h1>
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={reviewImg} className="max-w-sm rounded-lg  shadow-2xl" alt='' />
-                    <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
+                    <img data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000" src={reviewImg} className="max-w-sm rounded-lg  shadow-2xl" alt='' />
+                    <form data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
 
                         <input value={user?.displayName} className="w-96 input input-bordered shadow-2xl" {...register("name")} />
                         <input type="text" placeholder='Your location' className="w-96 input input-bordered shadow-2xl mt-2" {...register("address", { required: true })} required />
