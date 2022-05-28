@@ -21,16 +21,7 @@ const MyOrders = () => {
         return <Loading></Loading>
     }
 
-    // useEffect(() =>{
-    //     fetch(`http://localhost:5000/orders?email=${email}`,{
-    //       method: 'GET',
-    //       headers: {
-    //         'content-type' : 'application/json'
-    //       }
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => setOrders(data))
-    // },[])
+    
   
   return (
     <div>

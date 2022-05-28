@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import Loading from '../../Shared/Loading';
 import UserDetailsRow from './UserDetailsRow';
 
 const Users = () => {
@@ -11,11 +9,7 @@ const Users = () => {
       .then(res => res.json())
       .then(data => setUsers(data) )
   },[users])
-  // const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users')
-  //   .then(res => res.json()))
-  // if (isLoading) {
-  //   return <Loading></Loading>
-  // }
+
   return (
     <div>
       <div className="overflow-x-auto w-full">
