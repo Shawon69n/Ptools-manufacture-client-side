@@ -1,10 +1,22 @@
 import { toast } from 'react-toastify';
 import useAdmin from '../../Hooks/useAdmin';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
+
+const Swal = require('sweetalert2')
 const UserDetailsRow = ({ user, setUsers }) => {
   const { email, name, _id } = user;
   const [admin] = useAdmin(user);
-
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
   const makeAdmin = () => {
     fetch(`http://localhost:5000/users/admin/${email}`, {
       method: 'PUT',
@@ -16,7 +28,10 @@ const UserDetailsRow = ({ user, setUsers }) => {
       })
       .then(data => {
         if (data.modifiedCount === 1) {
-          toast.success('Successfully made an admin')
+          Toast.fire({
+            icon: 'success',
+            title: 'Made an admin succesfully'
+          })
 
         }
         else {
@@ -28,16 +43,34 @@ const UserDetailsRow = ({ user, setUsers }) => {
   }
 
   const handleRmoveUser = () => {
-     
-    fetch(`http://localhost:5000/user/${_id}`, {
-      method: 'DELETE'
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        fetch(`http://localhost:5000/user/${_id}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            
+          })
+
+      }
     })
-      .then(res => res.json())
-      .then(data => {
-        if (data.deletedCount > 0) {
-          toast.success('Removed user')
-        }
-      })
+    
+     
+    
     
   }
 

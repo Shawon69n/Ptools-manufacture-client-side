@@ -1,7 +1,19 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
+const Swal = require('sweetalert2')
 const AddProduct = () => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
 
     const handleAddProduct = e => {
         e.preventDefault();
@@ -25,7 +37,10 @@ const AddProduct = () => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.acknowledged) {
-                    toast.success('Product added successfully')
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Product added successfully'
+                      })
                     e.target.reset()
                 }
             });

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+const Swal = require('sweetalert2')
 const MyOrdersRow = ({ order, refetch }) => {
   const { productName, orderedQuantity, totalPrice, _id ,transactionId } = order;
 
-  const HandleRemoveUser = () => {
-    const Swal = require('sweetalert2')
+  const HandleRemoveUser = (pd,quant) => {
+    
 
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: `You want to cancel : ${pd}, Quantity : ${quant} `,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -52,7 +52,7 @@ const MyOrdersRow = ({ order, refetch }) => {
         {order?.paid && <button disabled className='btn-accent btn text-white font-semibold btn-xs'>Paid</button>}
       </td>
 
-      <td> { order?.paid ? '':<button onClick={HandleRemoveUser} className="btn btn-error hover:bg-red-600 btn-xs">Cancel</button>}</td>
+      <td> { order?.paid ? '':<button onClick={() =>HandleRemoveUser(productName,orderedQuantity)} className="btn btn-error hover:bg-red-600 btn-xs">Cancel</button>}</td>
     </tr>
   );
 };

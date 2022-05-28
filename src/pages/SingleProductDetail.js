@@ -5,8 +5,20 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
+const Swal = require('sweetalert2')
 
 const SingleProductDetail = () => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
     const [user] = useAuthState(auth);
     const [inputValue, setInputValue] = useState();
     const { id } = useParams();
@@ -48,7 +60,10 @@ const SingleProductDetail = () => {
         })
             .then(res => res.json())
             .then(added => {
-                toast.success("Your product is ordered !");
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Your product is ordered'
+                  })
             })
 
 

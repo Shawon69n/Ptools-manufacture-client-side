@@ -1,8 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { toast } from 'react-toastify';
 import Loading from '../../../Shared/Loading';
-
+const Swal = require('sweetalert2')
 const ManageOrders = () => {
     const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/manageorders', {
         method: 'GET',
@@ -16,18 +15,35 @@ const ManageOrders = () => {
         return <Loading></Loading>
     }
     
-    const handleRemoveOrder = (id) => {
-    
-        fetch(`http://localhost:5000/manageorders/${id}`, {
-          method: 'DELETE'
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.deletedCount > 0) {
-              toast.success('Removed user')
-              refetch()
+    const handleRemoveOrder = (id,e,quant,p) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `You want to remove order of : ${e} , product : ${p} , orderd quantity : ${quant}`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+              fetch(`http://localhost:5000/manageorders/${id}`, {
+                method: 'DELETE'
+              })
+                .then(res => res.json())
+                .then(data => {
+                  if (data.deletedCount > 0) {
+                    refetch()
+                  }
+                })
+      
             }
           })
+        
         
       }
    
@@ -62,7 +78,7 @@ const ManageOrders = () => {
                                     {!order?.paid && <p  className=' text-white bg-slate-500 rounded-full text-sm'>Pending</p>}
                                 </td>
 
-                                <td> {order?.paid ? '' :<button onClick={() => handleRemoveOrder(order?._id)} className="btn btn-error hover:bg-red-600  btn-xs"><span className='text-xs'>Remove</span></button>}</td>
+                                <td> {order?.paid ? '' :<button onClick={() => handleRemoveOrder(order?._id,order.email,order.orderedQuantity,order.productName)} className="btn btn-error hover:bg-red-600  btn-xs"><span className='text-xs'>Remove</span></button>}</td>
                             </tr>
                         )}
 
