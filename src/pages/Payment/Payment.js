@@ -18,9 +18,9 @@ const Payment = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='lg:flex justify-center mt-28'>
+        <div className='lg:grid ml-10 lg:ml-32 grid-cols-2 mt-28'>
 
-            <div class="card w-72 mr-10 bg-base-100 shadow-xl">
+            <div class="card w-80 mb-5 bg-base-100 shadow-xl">
                 <figure><img src={data.image} alt="Shoes" /></figure>
                 <div class="card-body">
                     <h2 class="card-title">Name: {data.productName}</h2>
@@ -29,7 +29,7 @@ const Payment = () => {
                 </div>
             </div>
 
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl  bg-base-100">
                 <div class="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm  data={data} />

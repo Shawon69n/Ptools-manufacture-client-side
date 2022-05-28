@@ -4,7 +4,7 @@ const ExtraHomeSectionOne = () => {
     return (
         <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src="https://us.123rf.com/450wm/artursz/artursz2008/artursz200800349/152975220-conceptual-hand-writing-showing-stay-connected-concept-meaning-to-remain-having-social-professional-.jpg?ver=6" className="max-w-sm rounded-lg shadow-2xl" alt=''/>
+          <img src="https://us.123rf.com/450wm/artursz/artursz2008/artursz200800349/152975220-conceptual-hand-writing-showing-stay-connected-concept-meaning-to-remain-having-social-professional-.jpg?ver=6" className=" w-fit rounded shadow-2xl" alt=''/>
           <div>
       
           <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000" className="mockup-phone">
