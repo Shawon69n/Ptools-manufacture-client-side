@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
@@ -8,7 +8,6 @@ import Loading from '../Shared/Loading';
 
 const SingleProductDetail = () => {
     const [user] = useAuthState(auth);
-    const [quantityError, setQuantityError] = useState('')
     const [inputValue, setInputValue] = useState();
     const { id } = useParams();
     const { data: product, isLoading } = useQuery('products', () => fetch(`http://localhost:5000/product/${id}`)
@@ -17,23 +16,17 @@ const SingleProductDetail = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    const { name, price, details, image, availableQuantity, minimumQuantity, _id } = product;
+    const { name, price, details, image, availableQuantity, minimumQuantity} = product;
 
     const handleChange = (e) => {
         setInputValue(e.target.value);
-        
+       
     };
 
     const handleSubmit = event => {
         event.preventDefault();
         const orderedQuantity = event.target.orderedQuantity.value;
-        if(inputValue > availableQuantity){
-            setQuantityError(`You can't order over than ${availableQuantity}`)
-            return
-        }
-        else{
-            setQuantityError('')
-        }
+       
 
         const totalPrice = price * orderedQuantity;
         const email = user.email;
@@ -81,11 +74,12 @@ const SingleProductDetail = () => {
                         </label>
                         <input name='orderedQuantity' value={inputValue} onChange={handleChange} className="input input-bordered input-sm w-44 input-info max-w-xs" type='number' required />
 
-                        {inputValue < minimumQuantity || inputValue === 0 ? <input disabled className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' /> : <input className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' />}
+                        {inputValue < minimumQuantity || inputValue === 0 || inputValue > availableQuantity ? <input disabled className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' /> : <input className='btn btn-primary btn-xl ml-10' type="submit" value='Place order' />}
 
                     </form>
-                    {quantityError ? <p className='text-sm text-red-600'>{quantityError}</p> : ''}
-
+                   
+                    {inputValue > availableQuantity ? <p className='text-sm text-red-600'>Order quantity can't be bigger than your available quantity</p> : '' }
+                    {inputValue < minimumQuantity ? <p className='text-sm text-red-600'>Order quantity can't be smaller than your available quantity</p> : '' }
 
                 </div>
             </div>

@@ -77,6 +77,7 @@ const CheckoutForm = ({data}) => {
             
         }
         else{
+          
             setCardError('')
             settransactionId(paymentIntent.id);
 
@@ -89,6 +90,7 @@ const CheckoutForm = ({data}) => {
                 imageAlt: 'Custom image',
               })
               
+              setProcessing(false)
              
 
             //   sending to batabase 
@@ -132,6 +134,7 @@ const CheckoutForm = ({data}) => {
                 Pay
             </button>
         </form>
+        {processing === true ? <Loading></Loading> : ''}
         {cardError && <p className='text-red-600'>{cardError}</p>}
         {success && <p className='text-green-600'>{success}</p>}
         {transactionId && <p className='text-orange-400'>Your Transaction ID : ${transactionId}</p>}
