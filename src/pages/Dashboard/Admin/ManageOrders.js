@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Loading from '../../../Shared/Loading';
 const Swal = require('sweetalert2')
 const ManageOrders = () => {
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/manageorders', {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://fathomless-wave-90975.herokuapp.com/manageorders', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -31,7 +31,7 @@ const ManageOrders = () => {
                 'Your file has been deleted.',
                 'success'
               )
-              fetch(`http://localhost:5000/manageorders/${id}`, {
+              fetch(`https://fathomless-wave-90975.herokuapp.com/manageorders/${id}`, {
                 method: 'DELETE'
               })
                 .then(res => res.json())

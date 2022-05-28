@@ -18,7 +18,7 @@ const CheckoutForm = ({data}) => {
   
 
     useEffect(() =>{
-        fetch('http://localhost:5000/create-payment-intent',{
+        fetch('https://fathomless-wave-90975.herokuapp.com/create-payment-intent',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -98,7 +98,7 @@ const CheckoutForm = ({data}) => {
                 transactionId : paymentIntent.id,
                 productId : _id
             }
-              fetch(`http://localhost:5000/orders/${_id}`,{
+              fetch(`https://fathomless-wave-90975.herokuapp.com/orders/${_id}`,{
                   method: 'PATCH',
                   headers:{
                       'content-type' : 'application/json',

@@ -22,7 +22,7 @@ const MyOrdersRow = ({ order, refetch }) => {
           'Your order is cancelled.',
           'success'
         )
-        fetch(`http://localhost:5000/manageorders/${_id}`, {
+        fetch(`https://fathomless-wave-90975.herokuapp.com/manageorders/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

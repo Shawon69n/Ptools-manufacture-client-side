@@ -18,7 +18,7 @@ const UpdateProfile = () => {
         const linkedid = e.target.linkedid.value;
         const newProfile ={name,img,address,education,linkedid,email};
         
-        fetch('http://localhost:5000/myprofile',{
+        fetch('https://fathomless-wave-90975.herokuapp.com/myprofile',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

@@ -18,7 +18,7 @@ const UserDetailsRow = ({ user, setUsers }) => {
     }
   })
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/users/admin/${email}`, {
+    fetch(`https://fathomless-wave-90975.herokuapp.com/users/admin/${email}`, {
       method: 'PUT',
 
     })
@@ -58,7 +58,7 @@ const UserDetailsRow = ({ user, setUsers }) => {
           'Your file has been deleted.',
           'success'
         )
-        fetch(`http://localhost:5000/user/${_id}`, {
+        fetch(`https://fathomless-wave-90975.herokuapp.com/user/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

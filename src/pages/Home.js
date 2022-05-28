@@ -9,7 +9,7 @@ import Loading from '../Shared/Loading';
 
 const Home = () => {
 
-    const {data: products ,  isLoading} = useQuery('/products' , () => fetch('http://localhost:5000/products')
+    const {data: products ,  isLoading} = useQuery('/products' , () => fetch('https://fathomless-wave-90975.herokuapp.com/products')
             .then(res => res.json()))
 
             if(isLoading){

@@ -22,7 +22,7 @@ const SingleProductDetail = () => {
     const [user] = useAuthState(auth);
     const [inputValue, setInputValue] = useState();
     const { id } = useParams();
-    const { data: product, isLoading } = useQuery('products', () => fetch(`http://localhost:5000/product/${id}`)
+    const { data: product, isLoading } = useQuery('products', () => fetch(`https://fathomless-wave-90975.herokuapp.com/product/${id}`)
         .then(res => res.json()))
 
     if (isLoading) {
@@ -51,7 +51,7 @@ const SingleProductDetail = () => {
         }
 
         // sending to database 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://fathomless-wave-90975.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

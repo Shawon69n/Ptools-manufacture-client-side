@@ -48,7 +48,7 @@ const Login = () => {
     const name = gUser?.user?.displayName;
     const userData = {email,name}
 
-    fetch(`http://localhost:5000/users/${email}`, {
+    fetch(`https://fathomless-wave-90975.herokuapp.com/users/${email}`, {
       method: 'PUT',
       headers: {
           'content-type' : 'application/json'

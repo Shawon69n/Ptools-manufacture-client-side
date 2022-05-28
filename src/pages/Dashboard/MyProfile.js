@@ -13,7 +13,7 @@ const MyProfile = () => {
         signOut(auth);
     }
 
-    const { data: profile, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/myprofile?email=${user?.email}`)
+    const { data: profile, isLoading, refetch } = useQuery('users', () => fetch(`https://fathomless-wave-90975.herokuapp.com/myprofile?email=${user?.email}`)
         .then(res => res.json()))
 
 

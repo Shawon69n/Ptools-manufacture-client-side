@@ -49,7 +49,7 @@ const SignUp = () => {
                 const name = data?.name;
                 const user = { email, name }
         
-                fetch('http://localhost:5000/users', {
+                fetch('https://fathomless-wave-90975.herokuapp.com/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +77,7 @@ const SignUp = () => {
         const name = gUser?.user?.displayName;
         const userData = {email,name}
 
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://fathomless-wave-90975.herokuapp.com/users/${email}`, {
           method: 'PUT',
           headers: {
               'content-type' : 'application/json'

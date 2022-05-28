@@ -9,7 +9,7 @@ const MyOrders = () => {
   const email = user?.email;
   // const [orders,setOrders] = useState([]);
 
-  const {data: orders ,  isLoading , refetch} = useQuery('orders' , () => fetch(`http://localhost:5000/orders?email=${email}`,{
+  const {data: orders ,  isLoading , refetch} = useQuery('orders' , () => fetch(`https://fathomless-wave-90975.herokuapp.com/orders?email=${email}`,{
           method: 'GET',
           headers: {
             'content-type' : 'application/json'
