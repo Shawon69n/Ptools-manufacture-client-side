@@ -17,7 +17,7 @@ const useAdmin = user => {
                setAdmin(data.admin)
             })
         }
-    } ,[user])
+    } ,[])
     return [admin]
 }
 

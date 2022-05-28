@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import useAdmin from '../../Hooks/useAdmin';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
